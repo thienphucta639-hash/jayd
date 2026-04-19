@@ -5,74 +5,88 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Info, LifeBuoy, Facebook, MessageCircle } from "lucide-react";
 
 export function Navbar() {
   return (
-    <nav className="relative z-10 flex flex-col sm:flex-row justify-between items-center px-8 sm:px-16 py-6 sm:py-8 max-w-[1024px] mx-auto w-full gap-4 sm:gap-0">
+    <nav className="relative z-10 flex flex-col sm:flex-row justify-between items-center px-8 sm:px-16 py-6 sm:py-8 max-w-[1024px] mx-auto w-full gap-4 sm:gap-0 animate-slide-up">
       <div className="flex items-center">
         <span 
-          className="text-[28px] tracking-tight text-foreground font-normal"
+          className="text-[28px] tracking-tight font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          passmonez<sup className="text-[10px] -top-[1em]">®</sup>
+          passmonez<sup className="text-[10px] -top-[1em] text-sky-400">®</sup>
         </span>
       </div>
       
       <div className="flex items-center space-x-6 sm:space-x-8">
-        <a href="#" className="text-[12px] sm:text-[13px] text-foreground font-medium transition-colors">Trang chủ</a>
+        <a href="#" className="text-[12px] sm:text-[13px] text-stone-300 hover:text-white font-medium transition-colors relative group">
+          Trang chủ
+          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-sky-400 transition-all group-hover:w-full"></span>
+        </a>
         
         <Dialog>
           <DialogTrigger asChild>
-            <button className="text-[12px] sm:text-[13px] text-muted-foreground hover:text-foreground font-medium transition-colors cursor-pointer">
+            <span className="text-[12px] sm:text-[13px] text-stone-300 hover:text-white font-medium transition-colors cursor-pointer relative group">
               About Us
-            </button>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-sky-400 transition-all group-hover:w-full"></span>
+            </span>
           </DialogTrigger>
-          <DialogContent className="bg-background/95 backdrop-blur-md border-border text-foreground">
+          <DialogContent className="liquid-glass border-white/20 rounded-[32px] max-w-md w-full mx-4 text-white">
             <DialogHeader>
-              <DialogTitle style={{ fontFamily: "var(--font-display)" }} className="text-2xl">About Us</DialogTitle>
+              <DialogTitle style={{ fontFamily: "var(--font-display)" }} className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400 text-center">Về Chúng Tôi</DialogTitle>
             </DialogHeader>
-            <div className="space-y-4 py-4">
-              <p className="text-muted-foreground leading-relaxed">
-                <span className="text-foreground font-medium">Coding by:</span> Thiên Phúc<br />
-                <span className="text-foreground font-medium">Assistant:</span> Aistudio, Canva, Động Sếch Gay<br />
-                <span className="text-foreground font-medium">Software:</span> VS Code, Notepad
-              </p>
+            <div className="space-y-4 py-4 w-full bg-black/20 p-6 rounded-2xl border border-white/5 mt-4">
+              <div className="flex justify-between items-center border-b border-white/10 pb-3">
+                <span className="text-stone-400">Coding by</span>
+                <span className="text-white font-bold">Thiên Phúc</span>
+              </div>
+              <div className="flex justify-between items-center border-b border-white/10 pb-3">
+                <span className="text-stone-400">Assistant</span>
+                <span className="text-white font-bold whitespace-nowrap">Aistudio, Động Sếch Gay</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-stone-400">Software</span>
+                <span className="text-white font-bold">VS Code, Notepad</span>
+              </div>
             </div>
           </DialogContent>
         </Dialog>
 
         <Dialog>
           <DialogTrigger asChild>
-            <button className="text-[12px] sm:text-[13px] text-muted-foreground hover:text-foreground font-medium transition-colors cursor-pointer">
+            <span className="text-[12px] sm:text-[13px] text-stone-300 hover:text-white font-medium transition-colors cursor-pointer relative group">
               Cứu trợ khẩn cấp
-            </button>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-400 transition-all group-hover:w-full"></span>
+            </span>
           </DialogTrigger>
-          <DialogContent className="bg-background/95 backdrop-blur-md border-border text-foreground">
-            <DialogHeader>
-              <DialogTitle style={{ fontFamily: "var(--font-display)" }} className="text-2xl">Cứu trợ khẩn cấp</DialogTitle>
+          <DialogContent className="liquid-glass border-white/20 rounded-[32px] max-w-md w-full mx-4 text-white">
+            <DialogHeader className="flex flex-col items-center">
+              <div className="w-16 h-16 rounded-full bg-red-500/20 flex items-center justify-center mb-4 border border-red-500/30">
+                <LifeBuoy className="w-8 h-8 text-red-400 icon-3d" />
+              </div>
+              <DialogTitle style={{ fontFamily: "var(--font-display)" }} className="text-3xl font-bold text-center">Cứu trợ khẩn cấp</DialogTitle>
             </DialogHeader>
-            <div className="space-y-6 py-4">
-              <div className="flex flex-col gap-2">
-                <span className="text-sm text-muted-foreground uppercase tracking-wider font-semibold">Facebook</span>
-                <a 
-                  href="https://www.facebook.com/ta.thien.phuc.922208?locale=vi_VN" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline break-all"
-                >
-                  facebook.com/ta.thien.phuc.922208
-                </a>
-              </div>
-              <div className="flex flex-col gap-2">
-                <span className="text-sm text-muted-foreground uppercase tracking-wider font-semibold">Zalo</span>
-                <p className="text-foreground text-lg font-medium">0909747714</p>
-              </div>
+            <div className="space-y-4 w-full mt-4">
+              <a href="https://www.facebook.com/ta.thien.phuc.922208?locale=vi_VN" target="_blank" rel="noopener noreferrer" className="flex items-center p-4 rounded-2xl bg-sky-500/10 border border-sky-500/20 hover:bg-sky-500/20 transition-colors group">
+                <Facebook className="w-6 h-6 text-sky-400 mr-4" />
+                <div className="text-left">
+                  <p className="text-[10px] text-sky-300/80 font-bold uppercase">Facebook Cá Nhân</p>
+                  <p className="text-sm font-semibold text-white group-hover:text-sky-300 truncate w-48">Tạ Thiên Phúc</p>
+                </div>
+              </a>
+              <a href="https://zalo.me/0909747714" target="_blank" rel="noopener noreferrer" className="flex items-center p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20 hover:bg-blue-500/20 transition-colors group">
+                <MessageCircle className="w-6 h-6 text-blue-400 mr-4" />
+                <div className="text-left">
+                  <p className="text-[10px] text-blue-300/80 font-bold uppercase">Zalo Support</p>
+                  <p className="text-sm font-semibold text-white group-hover:text-blue-300">0909.747.714</p>
+                </div>
+              </a>
             </div>
           </DialogContent>
         </Dialog>
       </div>
       
-      {/* Spacer to help center the middle links on desktop */}
       <div className="hidden sm:block w-[120px]"></div>
     </nav>
   );
